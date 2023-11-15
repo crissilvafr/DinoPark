@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
+    <script type="module" src="js/components.js"></script>
+    <title>Dino Park</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="trex" src="models/T-Rex.glb"></a-asset-item>
+            <a-asset-item id="tri" src="models/Triceratops.glb"></a-asset-item>
+            <a-asset-item id="vel" src="models/Velociraptor.glb"></a-asset-item>
+        </a-assets>
+        <a-entity camera orbit-control position="0 0 0"></a-entity>
+        <a-entity id="leftHand" hand-tracking-controls="hand: left; modelStyle: dots; modelColor: #1f3f5f"
+        hand-tracking-extras hand-teleport="rig: #rig; origin: a-camera" drag-move="rig: #rig; speed: 5"></a-entity>
+      <a-entity id="rightHand" hand-tracking-controls="hand: right; modelStyle: dots; modelColor: #5f1f3f"></a-entity>
+        <a-entity hdri-map="hdr:hdri/sky.hdr; exposure:1"></a-entity>
+        <a-entity gltf-model="#trex" position="0 0 -10" animation-mixer="clip: Armature|TRex_Idle"></a-entity>
+        <a-entity gltf-model="#tri" position="10 0 0" animation-mixer="clip: Armature|Triceratops_Idle"></a-entity>
+        <a-entity gltf-model="#vel" position="-10 0 0" animation-mixer="clip: Armature|Velociraptor_Idle"></a-entity>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="50" height="50" color="#7BC8A4"></a-plane>
+    </a-scene>
+</body>
+
+</html>
